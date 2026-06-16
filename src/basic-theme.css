@@ -1,0 +1,170 @@
+.basic-theme {
+  /* --bg-color: #1b202c; */
+  --bg-color: #121824;
+  --bg-gradient: linear-gradient(135deg, #121824 0%, #1e293b 100%);
+  --container-bg: rgba(30, 41, 59, 0.7);
+  /* Slate 800 with opacity */
+  --container-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #f8fafc;
+  --xelis-green: #02ffcf;
+  /* Slate 50 */
+  --text-secondary: #94a3b8;
+  /* Slate 400 */
+  --accent-color: #3b82f6;
+  /* Blue 500 */
+  --accent-hover: #2563eb;
+  /* Blue 600 */
+  --input-bg: rgba(15, 23, 42, 0.6);
+  --autofill-bg: #141d30;
+  --autofill-bg-focus: #121a2d;
+  --input-border: rgba(255, 255, 255, 0.15);
+  --autofill-border: #3b4352;
+  --input-focus: #3b82f6;
+  --glow-color: rgba(59, 130, 246, 0.5);
+  --error-color: #ef4444;
+  --error-color-2: rgb(236, 97, 26);
+}
+
+.basic-theme {
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  padding: 3rem;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 2rem;
+}
+
+.basic-theme .container {
+  background: var(--container-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--container-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(59, 130, 246, 0.1);
+  width: 100%;
+  max-width: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.basic-theme .container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 60px rgba(59, 130, 246, 0.2);
+}
+
+.basic-theme .header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.basic-theme h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.basic-theme p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.basic-theme .wallet-panel {
+  /* background: rgba(15, 23, 42, 0.4); */
+  /* border: 1px solid var(--container-border) !important; */
+  /* Overriding inline styles in JS */
+  border-radius: 12px;
+  padding: 1rem !important;
+  /* Overriding inline styles in JS */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.basic-theme .wallet-panel {
+  padding-top: 2.5rem !important;
+}
+
+.basic-theme .wallet-connect-title {
+  padding-bottom: 1rem !important;
+}
+
+.basic-theme.connected-wallet .wallet-connect-title {
+  color: var(--xelis-green);
+}
+
+.basic-theme .wallet-panel button {
+  flex: 1;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-color);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+  text-align: center;
+}
+
+.basic-theme .wallet-panel button {
+  background: rgba(16, 185, 129, 0.1);
+  /* Emerald 500 */
+  color: var(--xelis-green);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.basic-theme .wallet-panel button:hover {
+  background: #02ffcf33;
+  border-color: #02ffcf80;
+  transform: translateY(-1px);
+}
+
+.basic-theme .progress-ring__circle {
+  stroke: #02ffcfe8 !important;
+}
+
+.basic-theme .btn-remove-file.active {
+  color: var(--error-color-2);
+}
+
+.basic-theme .btn-remove-file:hover {
+  cursor: pointer;
+}
+
+.basic-theme .error {
+  color: var(--error-color-2) !important;
+}
+
+.basic-theme .disabled {
+  cursor: default;
+}
+
+.basic-theme .lower-message {
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.basic-theme .wallet-error-container {
+  margin-bottom: 0.75rem;
+}
+
+.basic-theme .error-ui-message {
+  margin-bottom: 0.75rem;
+}

@@ -1,0 +1,49 @@
+{
+  "name": "@xelis/xelis-wallet-connect",
+  "author": "Codehalo",
+  "private": true,
+  "version": "0.1.0",
+  "keywords": [
+    "xelis",
+    "wallet",
+    "blockchain",
+    "xswd",
+    "xelis_wallet_cli"
+  ],
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/xelis-wallet-connect.js",
+  "module": "dist/xelis-wallet-connect.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/xelis-wallet-connect.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./wallet-ui.css": "./dist/wallet-ui.css",
+    "./basic-theme.css": "./dist/basic-theme.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "prepare": "npm run build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "degit": "^2.8.4",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.1",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-lib-inject-css": "^2.2.2"
+  },
+  "dependencies": {
+    "@xelis/sdk": "^0.10.3",
+    "@xelis/xswd-connect": "https://github.com/xelis-project/xswd-connect#master",
+    "loglevel": "^1.9.2",
+    "qr-code-styling": "^1.9.2"
+  }
+}
