@@ -23,7 +23,7 @@ This library relies on [@xelis/xswd-connect](https://github.com/xelis-project/xs
 
 ## Installation
 
-**Manually**
+**Manually** 
 In your ``package.json`` file, add the following to the ``dependencies`` section:
 ```json
 "@xelis/xelis-wallet-connect": "https://github.com/codehalo/xelis-wallet-connect#main"
