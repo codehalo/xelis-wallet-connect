@@ -179,18 +179,21 @@ When instantiating `XelisWallet`, you pass a configuration object which contains
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
+| **appData** | `object` | Options for the wallet. |
 | `appData.id` | `string` | Unique identifier for your app (automatically generated if not specified). |
 | `appData.name` | `string` | **Required**. Display name of your DApp shown to the user during approval. |
 | `appData.description` | `string` | **Required**. Short description of your DApp. |
 | `appData.url` | `string` | **Required**. The URL of your DApp (defaults to current window location). |
 | `appData.permissions` | `string[]` | List of actions or data fields your app requests access to. |
+
+| **qrCodeOptions** | `object` | Options for the QR code. |
 | `qrCodeOptions.color` | `string` | Color of the QR code modules (default: `#000000`). |
 | `qrCodeOptions.backgroundColor` | `string` | Background color of the QR code (default: `#FFFFFF`). |
 | `qrCodeOptions.logoUrl` | `string` | Path or URL to a logo positioned in the center of the QR code. MAKE SURE THE ACTUAL ASSET EXISTS, or the QR code image will not be generated!  |
 | `qrCodeOptions.logoSize` | `number` | Size of the logo as a percentage of the total QR code size (default: `0.2`). |
 | `qrCodeOptions.centerBackgroundColor` | `string` | Color of the background behind the logo (default: `#FFFFFF`). |
 | `relayurl` | `string` | When connecting to a remote wallet, [the relayer](https://github.com/xelis-project/xswd-relayer) that facilitates communication between the dapp and the wallet. (default: `wss://relay.xelis.io/ws`). |
-| `uiOptions` | `object` | Options for the UI of the wallet. |
+| **uiOptions** | `object` | Options for the UI of the wallet. |
 | `uiOptions.theme` | `string` | Use a theme for the wallet. If omitted, it uses the `basic-theme`, if `'none'` or blank, no styling is used. (default: `basic-theme`). |
 | `uiOptions.walletMainPageTitle` | `string` | Set title for the wallet main page. (default: `Connect a XELIS wallet`). |
 | `uiOptions.connectLocalButtonText` | `string` | Set text for the local connect button. (default: `Connect Local Desktop Wallet`). |
