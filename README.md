@@ -7,9 +7,9 @@ This library relies on [@xelis/xswd-connect](https://github.com/xelis-project/xs
 ---
 
 ## Screenshots
-<div align="center"><img src="screenshots/4.png" alt="Main"  style="width: 320px"></div>
-<div align="center"><img src="screenshots/5.png" alt="Local Wallet Connect" style="width: 320px"></div>
-<div align="center"><img src="screenshots/6.png" alt="Remote/Mobile Wallet Connect"  style="width: 320px"></div>
+<div style="text-align: center"><img src="screenshots/4.png" alt="Main"  style="width: 320px"></div>
+<div style="text-align: center"><img src="screenshots/5.png" alt="Local Wallet Connect" style="width: 320px"></div>
+<div style="text-align: center"><img src="screenshots/6.png" alt="Remote/Mobile Wallet Connect"  style="width: 320px"></div>
 
 ## Features
 
@@ -185,7 +185,6 @@ When instantiating `XelisWallet`, you pass a configuration object which contains
 | `appData.description` | `string` | **Required**. Short description of your DApp. |
 | `appData.url` | `string` | **Required**. The URL of your DApp (defaults to current window location). |
 | `appData.permissions` | `string[]` | List of actions or data fields your app requests access to. |
-
 | **qrCodeOptions** | `object` | Options for the QR code. |
 | `qrCodeOptions.color` | `string` | Color of the QR code modules (default: `#000000`). |
 | `qrCodeOptions.backgroundColor` | `string` | Background color of the QR code (default: `#FFFFFF`). |
