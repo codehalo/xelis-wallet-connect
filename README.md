@@ -7,9 +7,9 @@ This library relies on [@xelis/xswd-connect](https://github.com/xelis-project/xs
 ---
 
 ## Screenshots
-<div style="text-align: center"><img src="screenshots/4.png" alt="Main"  style="width: 320px"></div>
-<div style="text-align: center"><img src="screenshots/5.png" alt="Local Wallet Connect" style="width: 320px"></div>
-<div style="text-align: center"><img src="screenshots/6.png" alt="Remote/Mobile Wallet Connect"  style="width: 320px"></div>
+<div align="center"><img src="screenshots/4.png" alt="Main"  style="width: 320px"></div>
+<div align="center"><img src="screenshots/5.png" alt="Local Wallet Connect" style="width: 320px"></div>
+<div align="center"><img src="screenshots/6.png" alt="Remote/Mobile Wallet Connect"  style="width: 320px"></div>
 
 ## Features
 
