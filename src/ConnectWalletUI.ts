@@ -1,16 +1,16 @@
 import { ProgressDisplay } from "./ProgressDisplay";
 import XelisWallet from "./XelisWallet";
-// import { WalletLocal } from "./WalletLocal";
 import './wallet-ui.css';
 import './basic-theme.css';
 
 export interface UIOptions {
-    title: string;
-    mobile: string;
-    local: string;
-    getWallet: string;
-    cancel: string;
-};
+    theme?: string,
+    walletMainPageTitle?: string;
+    remoteConnectButtonText?: string;
+    localConnectButtonText?: string;
+    getWalletButtonText?: string;
+    mainCancelButtonText?: string;
+}
 export class ConnectWalletUI extends EventTarget {
     // main wallet container from dapp
     walletContainer: HTMLElement;
@@ -26,17 +26,22 @@ export class ConnectWalletUI extends EventTarget {
     qrCodeContainer: HTMLElement;
     popupMessageContainer: HTMLDivElement;
     errorUIContainer: HTMLDivElement;
+    uiOptions: UIOptions;
 
-    constructor(wallet: XelisWallet, walletContainer: HTMLElement, uiOptions: UIOptions = {
-        title: 'Connect a XELIS Wallet',
-        mobile: 'Connect Mobile/Remote Wallet',
-        local: 'Connect Local Wallet',
-        getWallet: 'I need a wallet!',
-        cancel: 'Cancel',
-    }) {
+
+    constructor(wallet: XelisWallet, walletContainer: HTMLElement, uiOptions: any = {}) {
         super();
 
         const _thisUI = this;
+
+        this.uiOptions = {
+            walletMainPageTitle: uiOptions.walletMainPageTitle ?? "Connect a XELIS Wallet",
+            remoteConnectButtonText: uiOptions.remoteConnectButtonText ?? "Connect using QR Code",
+            localConnectButtonText: uiOptions.localConnectButtonText ?? "Connect Local Desktop Wallet",
+            getWalletButtonText: uiOptions.getWalletButtonText ?? "I need a wallet",
+            mainCancelButtonText: uiOptions.mainCancelButtonText ?? "Cancel",
+            theme: uiOptions.theme ?? "basic-theme"
+        }
 
         this.xelisWallet = wallet;
         this.walletContainer = walletContainer;
@@ -46,17 +51,17 @@ export class ConnectWalletUI extends EventTarget {
         this.walletConnectContainer = document.createElement('div');
         this.walletConnectContainer.classList.add('wallet-connect-container');
         this.walletConnectContainer.innerHTML = `
-            <div class="wallet-connect-title">${uiOptions.title}</div>
+            <div class="wallet-connect-title">${this.uiOptions.walletMainPageTitle}</div>
             <div class="wallet-connect-options">
-                <button class="btn-wallet-connect-mobile">${uiOptions.mobile}</button>
-                <button class="btn-wallet-connect-local">${uiOptions.local}</button>
+                <button class="btn-wallet-connect-mobile">${this.uiOptions.remoteConnectButtonText}</button>
+                <button class="btn-wallet-connect-local">${this.uiOptions.localConnectButtonText}</button>
             </div>
             <div class="wallet-connect-info">
-                <button class="btn-get-wallet">${uiOptions.getWallet}</button>
+                <button class="btn-get-wallet">${this.uiOptions.getWalletButtonText}</button>
             </div>
             <div class="qr-code-container" style="display:none"></div>
             <div class="wallet-main-cancel-container">
-                <button class="btn-close-wallet">${uiOptions.cancel}</button>
+                <button class="btn-close-wallet">${this.uiOptions.mainCancelButtonText}</button>
             </div>
             <div class="connected-container" style="display:none">
                 <!--table class="wallet-stats">
@@ -213,7 +218,7 @@ export class ConnectWalletUI extends EventTarget {
             console.log(`[ConnectWalletUI] wallet-disconnect`);
             this.walletContainer.classList.remove('connected-wallet');
             const walletTitle = this.walletConnectContainer.querySelector('.wallet-connect-title') as HTMLDivElement;
-            walletTitle.innerHTML = uiOptions.title;
+            walletTitle.innerHTML = uiOptions.walletMainPageTitle;
         });
 
         function resetConnectUI() {

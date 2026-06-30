@@ -61,8 +61,7 @@ export interface QrCodeOptions {
 export interface WalletConfig {
     appData: AppData,
     qrCodeOptions?: QrCodeOptions,
-    relayerUrl?: string,
-    theme?: string
+    relayerUrl?: string
 }
 
 export type MethodCallback = (data: any) => void;

@@ -102,7 +102,9 @@ const myWallet = new XelisWallet(container,
       centerBackgroundColor: '#FFFFFF'
     },
     relayerUrl: WalletDefaults.RELAYER_XELIS,
-    theme: 'basic-theme'
+    uiOptions: {
+        theme: 'basic-theme'
+    }
   });
 
 myWallet.addEventListener("wallet-ready", (event: Event) => {
@@ -173,7 +175,7 @@ myWallet.addEventListener("wallet-connect-error", (e: Event) => {
 ## API Configuration Options
 
 ### `WalletConfig`
-When instantiating `XelisWallet`, you pass a configuration object containing `appData`, `qrCodeOptions`, and `relayUrl`:
+When instantiating `XelisWallet`, you pass a configuration object which contains `appData`, `qrCodeOptions`, `uiOptions`, and `relayerUrl`:
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
@@ -188,7 +190,13 @@ When instantiating `XelisWallet`, you pass a configuration object containing `ap
 | `qrCodeOptions.logoSize` | `number` | Size of the logo as a percentage of the total QR code size (default: `0.2`). |
 | `qrCodeOptions.centerBackgroundColor` | `string` | Color of the background behind the logo (default: `#FFFFFF`). |
 | `relayurl` | `string` | When connecting to a remote wallet, [the relayer](https://github.com/xelis-project/xswd-relayer) that facilitates communication between the dapp and the wallet. (default: `wss://relay.xelis.io/ws`). |
-| `theme` | `string` | Use a theme for the wallet. If omitted, it uses the `basic-theme`, if `'none'` or blank, no styling is used. (default: `basic-theme`). |
+| `uiOptions` | `object` | Options for the UI of the wallet. |
+| `uiOptions.theme` | `string` | Use a theme for the wallet. If omitted, it uses the `basic-theme`, if `'none'` or blank, no styling is used. (default: `basic-theme`). |
+| `uiOptions.walletMainPageTitle` | `string` | Set title for the wallet main page. (default: `Connect a XELIS wallet`). |
+| `uiOptions.connectLocalButtonText` | `string` | Set text for the local connect button. (default: `Connect Local Desktop Wallet`). |
+| `uiOptions.connectRemoteButtonText` | `string` | Set text for the remote connect button. (default: `Connect using QR Code`). |
+| `uiOptions.getWalletButtonText` | `string` | Set text for the button that leads to [xelis.io/resources](https://xelis.io/resources). (default: `I need a Wallet`). |
+| `uiOptions.mainCancelButtonText` | `string` | Set text for the main cancel button. (default: `Cancel`). |
 
 ---
 

@@ -12,21 +12,25 @@ export default class XelisWallet extends WalletBase {
     walletUI: ConnectWalletUI;
     walletConfig: WalletConfig;
 
+    get uiOptions() {
+        return this.walletUI.uiOptions;
+    }
+
     constructor(walletContainer: HTMLElement,
-        { appData, qrCodeOptions, relayerUrl, theme }: { appData: AppData, qrCodeOptions?: QrCodeOptions, relayerUrl?: string, theme?: string }) {
+        { appData, qrCodeOptions, relayerUrl, uiOptions }: { appData: AppData, qrCodeOptions?: QrCodeOptions, relayerUrl?: string, uiOptions?: any }) {
 
         super();
 
-        this.walletUI = new ConnectWalletUI(this, walletContainer);
+        this.walletUI = new ConnectWalletUI(this, walletContainer, uiOptions);
 
         const { id = generateSecureHexString(64), name = "", description = "", url = window.location.href, permissions = ["network_info", "get_address"] as string[] } = appData ?? {};
         const { color = "#000000", backgroundColor = "#ffffff", centerBackgroundColor = "#FFFFFF", logoUrl = "", logoSize = 0.2 } = qrCodeOptions ?? {};
 
         let themeClass = "";
-        if (theme === undefined) {
+        if (uiOptions?.theme === undefined) {
             themeClass = 'basic-theme';
         } else {
-            themeClass = (theme === 'none' || theme === '') ? '' : theme;
+            themeClass = (uiOptions.theme === 'none' || uiOptions.theme === '') ? '' : uiOptions.theme;
         }
 
         if (themeClass !== '') {
@@ -49,7 +53,6 @@ export default class XelisWallet extends WalletBase {
                 logoSize: logoSize
             },
             relayerUrl: relayerUrl ?? WalletDefaults.RELAYER_XELIS,
-            theme: themeClass
         }
 
         console.log(`[XelisWallet] walletconfig`, this.walletConfig);
