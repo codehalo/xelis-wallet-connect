@@ -34,20 +34,23 @@ export default class XelisWallet extends WalletBase {
             walletContainer.classList.add(themeClass);
         }
 
+        let _appData = appData ?? {};
+        let _qrCodeOptions = qrCodeOptions ?? {};
+
         let userAppData: AppData = {
-            id: appData.id ?? generateSecureHexString(64),
-            name: appData.name ?? "",
-            description: appData.description ?? "",
-            url: appData.url ?? window.location.href,
-            permissions: appData.permissions ?? []
+            id: _appData.id ?? generateSecureHexString(64),
+            name: _appData.name ?? "",
+            description: _appData.description ?? "",
+            url: _appData.url ?? window.location.href,
+            permissions: _appData.permissions ?? []
         }
 
         let userQrCodeOptions: QrCodeOptions = {
-            color: qrCodeOptions.color ?? "#000000",
-            backgroundColor: qrCodeOptions.backgroundColor ?? "#ffffff",
-            centerBackgroundColor: qrCodeOptions.centerBackgroundColor ?? "#FFFFFF",
-            logoUrl: qrCodeOptions.logoUrl ?? "",
-            logoSize: qrCodeOptions.logoSize ?? 0.2
+            color: _qrCodeOptions.color ?? "#000000",
+            backgroundColor: _qrCodeOptions.backgroundColor ?? "#ffffff",
+            centerBackgroundColor: _qrCodeOptions.centerBackgroundColor ?? "#FFFFFF",
+            logoUrl: _qrCodeOptions.logoUrl ?? "",
+            logoSize: _qrCodeOptions.logoSize ?? 0.2
         }
 
         this.walletConfig = {

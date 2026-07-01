@@ -28,19 +28,21 @@ export class ConnectWalletUI extends EventTarget {
     errorUIContainer: HTMLDivElement;
     uiOptions: UIOptions;
 
-
     constructor(wallet: XelisWallet, walletContainer: HTMLElement, uiOptions: any = {}) {
         super();
 
         const _thisUI = this;
 
+
+        let _uiOptions = uiOptions ?? {};
+
         this.uiOptions = {
-            walletMainPageTitle: uiOptions.walletMainPageTitle ?? "Connect a XELIS Wallet",
-            remoteConnectButtonText: uiOptions.remoteConnectButtonText ?? "Connect using QR Code",
-            localConnectButtonText: uiOptions.localConnectButtonText ?? "Connect Local Desktop Wallet",
-            getWalletButtonText: uiOptions.getWalletButtonText ?? "I need a wallet",
-            mainCancelButtonText: uiOptions.mainCancelButtonText ?? "Cancel",
-            theme: uiOptions.theme ?? "basic-theme"
+            walletMainPageTitle: _uiOptions.walletMainPageTitle ?? "Connect a XELIS Wallet",
+            remoteConnectButtonText: _uiOptions.remoteConnectButtonText ?? "Connect using QR Code",
+            localConnectButtonText: _uiOptions.localConnectButtonText ?? "Connect Local Desktop Wallet",
+            getWalletButtonText: _uiOptions.getWalletButtonText ?? "I need a wallet",
+            mainCancelButtonText: _uiOptions.mainCancelButtonText ?? "Cancel",
+            theme: _uiOptions.theme ?? "basic-theme"
         }
 
         this.xelisWallet = wallet;
