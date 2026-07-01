@@ -17,14 +17,11 @@ export default class XelisWallet extends WalletBase {
     }
 
     constructor(walletContainer: HTMLElement,
-        { appData, qrCodeOptions, relayerUrl, uiOptions }: { appData: AppData, qrCodeOptions?: QrCodeOptions, relayerUrl?: string, uiOptions?: any }) {
+        { appData, qrCodeOptions, relayerUrl, uiOptions }: { appData?: any, qrCodeOptions?: any, relayerUrl?: string, uiOptions?: any }) {
 
         super();
 
         this.walletUI = new ConnectWalletUI(this, walletContainer, uiOptions);
-
-        const { id = generateSecureHexString(64), name = "", description = "", url = window.location.href, permissions = ["network_info", "get_address"] as string[] } = appData ?? {};
-        const { color = "#000000", backgroundColor = "#ffffff", centerBackgroundColor = "#FFFFFF", logoUrl = "", logoSize = 0.2 } = qrCodeOptions ?? {};
 
         let themeClass = "";
         if (uiOptions?.theme === undefined) {
@@ -37,21 +34,25 @@ export default class XelisWallet extends WalletBase {
             walletContainer.classList.add(themeClass);
         }
 
+        let userAppData: AppData = {
+            id: appData.id ?? generateSecureHexString(64),
+            name: appData.name ?? "",
+            description: appData.description ?? "",
+            url: appData.url ?? window.location.href,
+            permissions: appData.permissions ?? []
+        }
+
+        let userQrCodeOptions: QrCodeOptions = {
+            color: qrCodeOptions.color ?? "#000000",
+            backgroundColor: qrCodeOptions.backgroundColor ?? "#ffffff",
+            centerBackgroundColor: qrCodeOptions.centerBackgroundColor ?? "#FFFFFF",
+            logoUrl: qrCodeOptions.logoUrl ?? "",
+            logoSize: qrCodeOptions.logoSize ?? 0.2
+        }
+
         this.walletConfig = {
-            appData: {
-                id,
-                name,
-                description,
-                url,
-                permissions
-            },
-            qrCodeOptions: {
-                color: color,
-                backgroundColor: backgroundColor,
-                centerBackgroundColor: centerBackgroundColor,
-                logoUrl: logoUrl,
-                logoSize: logoSize
-            },
+            appData: userAppData,
+            qrCodeOptions: userQrCodeOptions,
             relayerUrl: relayerUrl ?? WalletDefaults.RELAYER_XELIS,
         }
 
