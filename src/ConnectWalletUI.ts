@@ -4,12 +4,12 @@ import './wallet-ui.css';
 import './basic-theme.css';
 
 export interface UIOptions {
-    theme?: string,
-    walletMainPageTitle?: string;
-    remoteConnectButtonText?: string;
-    localConnectButtonText?: string;
-    getWalletButtonText?: string;
-    mainCancelButtonText?: string;
+    theme: string,
+    walletMainPageTitle: string;
+    remoteConnectButtonText: string;
+    localConnectButtonText: string;
+    getWalletButtonText: string;
+    mainCancelButtonText: string;
 }
 export class ConnectWalletUI extends EventTarget {
     // main wallet container from dapp
@@ -218,7 +218,7 @@ export class ConnectWalletUI extends EventTarget {
             console.log(`[ConnectWalletUI] wallet-disconnect`);
             this.walletContainer.classList.remove('connected-wallet');
             const walletTitle = this.walletConnectContainer.querySelector('.wallet-connect-title') as HTMLDivElement;
-            walletTitle.innerHTML = uiOptions.walletMainPageTitle;
+            walletTitle.innerHTML = this.uiOptions.walletMainPageTitle;
         });
 
         function resetConnectUI() {
