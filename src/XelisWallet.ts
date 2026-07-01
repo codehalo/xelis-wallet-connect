@@ -169,5 +169,4 @@ export default class XelisWallet extends WalletBase {
             this.wallet.send_query(data);
         }
     }
-
 }

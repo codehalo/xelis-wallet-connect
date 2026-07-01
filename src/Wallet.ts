@@ -1,5 +1,3 @@
-import { generateSecureHexString } from "./utils";
-
 export class WalletDefaults {
     public static NODE_DEFAULT_PORT = "8080";
     public static WALLET_DEFAULT_PORT = "8181";
@@ -20,26 +18,6 @@ export class WalletDefaults {
 
     public static RELAYER_XELIS = 'wss://relay.xelis.io/ws';
     public static RELAYER_FORGE = 'wss://xswd.neptuun.xyz/ws';
-
-    static appDataWith({ id = generateSecureHexString(64), name = "", description = "", url = WalletDefaults.LOCAL_XSWD_URL, permissions = [] }: { id?: string, name?: string, description?: string, url?: string, permissions?: string[] }): AppData {
-        return {
-            id,
-            name,
-            description,
-            url,
-            permissions
-        }
-    }
-
-    static qrCodeOptionsWith({ color = "#000000", backgroundColor = "#ffffff", centerBackgroundColor = "#ffffff", logoUrl = "", logoSize = 0.2 }): QrCodeOptions {
-        return {
-            color,
-            backgroundColor,
-            centerBackgroundColor,
-            logoUrl,
-            logoSize
-        }
-    }
 }
 
 export interface AppData {
