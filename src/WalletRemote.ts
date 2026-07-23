@@ -138,15 +138,7 @@ export class WalletRemote extends WalletBase {
 
                 if (data.error && data.error.code === -32004) {
                     log.trace('[WalletRemote] Connection error.');
-                    alert("Wallet disconnected unexpectedly. Please try again.");
-                    this.close();
-
-                    this.walletReady = this.xelisWallet.walletReady = false;
-                    const wallet_disconnect = new CustomEvent("wallet-disconnect", {
-                        detail: { ws: this.client?.socket },
-                    });
-
-                    this.xelisWallet.dispatchEvent(wallet_disconnect);
+                    alert(`Wallet Error.\nKind:${data.error.kind}\nMessage:${data.error.message}`);
                     return;
                 }
 
